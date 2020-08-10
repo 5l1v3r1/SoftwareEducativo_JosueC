@@ -12,7 +12,7 @@ import vista.vPrincipal;
  *
  * @author Josue
  */
-public class cinicio {
+public class cMain {
     public static void main(String [ ] args ) {
     
   //  vPresentacion vista=new vPresentacion();
