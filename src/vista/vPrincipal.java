@@ -5,17 +5,21 @@
  */
 package vista;
 
+import java.awt.event.KeyEvent;
+
 /**
  *
  * @author Josue
  */
 public class vPrincipal extends javax.swing.JFrame {
 
-    /**
-     * Creates new form vPrincipal
-     */
+    private int x = 600;   
+    private int y = 0;
+    private int v = 6;      // Velocidad
     public vPrincipal() {
         initComponents();
+        lienzo.setFocusable(true);
+        imgInka.setLocation(x,y);  
     }
 
     /**
@@ -27,8 +31,9 @@ public class vPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        desktopPane = new javax.swing.JDesktopPane();
-        jLabel1 = new javax.swing.JLabel();
+        lienzo = new javax.swing.JDesktopPane();
+        imgInka = new javax.swing.JLabel();
+        imgFondo = new javax.swing.JLabel();
         menuBar = new javax.swing.JMenuBar();
         fileMenu = new javax.swing.JMenu();
         openMenuItem = new javax.swing.JMenuItem();
@@ -48,12 +53,21 @@ public class vPrincipal extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        desktopPane.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        lienzo.setMaximumSize(new java.awt.Dimension(800, 600));
+        lienzo.setMinimumSize(new java.awt.Dimension(800, 600));
+        lienzo.setPreferredSize(new java.awt.Dimension(800, 600));
+        lienzo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                lienzoKeyPressed(evt);
+            }
+        });
+        lienzo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/images.jpg"))); // NOI18N
-        jLabel1.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
-        desktopPane.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-70, -60, 390, 270));
+        imgInka.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/inka.png"))); // NOI18N
+        lienzo.add(imgInka, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 0, 160, 180));
+
+        imgFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/cuzco.jpg"))); // NOI18N
+        lienzo.add(imgFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 600));
 
         fileMenu.setMnemonic('f');
         fileMenu.setText("Bienvenidos");
@@ -128,11 +142,11 @@ public class vPrincipal extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(desktopPane)
+            .addComponent(lienzo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(desktopPane, javax.swing.GroupLayout.DEFAULT_SIZE, 279, Short.MAX_VALUE)
+            .addComponent(lienzo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -141,6 +155,18 @@ public class vPrincipal extends javax.swing.JFrame {
     private void exitMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitMenuItemActionPerformed
         System.exit(0);
     }//GEN-LAST:event_exitMenuItemActionPerformed
+
+    private void lienzoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_lienzoKeyPressed
+       
+        switch(evt.getExtendedKeyCode()){
+            case KeyEvent.VK_UP:     y = y-v; break;
+            case KeyEvent.VK_DOWN:   y = y+v; break;
+            case KeyEvent.VK_LEFT:   x = x-v; break;
+            case KeyEvent.VK_RIGHT:  x = x+v; break;
+        }
+        imgInka.setLocation(x,y);    
+
+    }//GEN-LAST:event_lienzoKeyPressed
 
     /**
      * @param args the command line arguments
@@ -183,14 +209,15 @@ public class vPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem copyMenuItem;
     private javax.swing.JMenuItem cutMenuItem;
     private javax.swing.JMenuItem deleteMenuItem;
-    private javax.swing.JDesktopPane desktopPane;
     private javax.swing.JMenu editMenu;
     private javax.swing.JMenuItem exitMenuItem;
     private javax.swing.JMenu fileMenu;
     private javax.swing.JMenu helpMenu;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel imgFondo;
+    private javax.swing.JLabel imgInka;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
+    private javax.swing.JDesktopPane lienzo;
     private javax.swing.JMenuBar menuBar;
     private javax.swing.JMenuItem openMenuItem;
     private javax.swing.JMenuItem pasteMenuItem;
