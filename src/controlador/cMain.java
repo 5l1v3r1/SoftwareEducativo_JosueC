@@ -5,8 +5,7 @@
  */
 package controlador;
 
-import vista.vPresentacion;
-import vista.vPrincipal;
+import vista.*;
 
 /**
  *
@@ -15,9 +14,7 @@ import vista.vPrincipal;
 public class cMain {
     public static void main(String [ ] args ) {
     
-  //  vPresentacion vista=new vPresentacion();
-    //vista.setVisible(true);
-      vPrincipal vista=new vPrincipal();
-    vista.setVisible(true);
+        vMenu vista=new vMenu();
+        vista.setVisible(true);
     }
 }
