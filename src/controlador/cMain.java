@@ -5,7 +5,8 @@
  */
 package controlador;
 
-import vista.*;
+import vista.Index;
+import vista.vMenu;
 
 /**
  *
@@ -14,7 +15,11 @@ import vista.*;
 public class cMain {
     public static void main(String [ ] args ) {
     
-        vMenu vista=new vMenu();
-        vista.setVisible(true);
+        Index index = new Index();
+        index.setLocationRelativeTo(null);
+        index.setVisible(true);
+        
+        //vMenu vista=new vMenu();
+        //vista.setVisible(true);
     }
 }
