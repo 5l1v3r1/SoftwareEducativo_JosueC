@@ -10,9 +10,9 @@ import modelo.imgEffect;
 import modelo.playSound;
 public class Index extends javax.swing.JFrame {
 
-    private  ImagenS inka = new ImagenS("src\\img\\index\\inka.gif",589-5,445-5);
+    private  ImagenS inka = new ImagenS("src\\img\\index\\inka.gif",589,445);
     private  ImagenS logo = new ImagenS("src\\img\\index\\logo.png",591-5,90-5);
-    private final String pathSound = "src\\sound\\voces\\bienvenidos.wav"; 
+    private final String pathSound = "src\\sound\\voces\\chuquisoft.wav"; 
     public playSound soundInicio;
    
     public Index() {

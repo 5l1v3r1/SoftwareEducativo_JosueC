@@ -16,21 +16,29 @@ public class vMenu extends javax.swing.JFrame {
     private int y = 0;
     private int velocidad =6;
     
+   // <editor-fold defaultstate="collapsed" desc="sound Fast">
     // Audio Cofre Magico
-    private final String pathCofre = "src\\sound\\voces\\bienvenidos.wav";
+    private final String pathCofre = "src\\sound\\voces\\cofre - fast.wav";
+
     public playSound iACofre;
     // Audio Video
-    private final String pathVideo = "src\\sound\\voces\\bienvenidos.wav"; 
-    public playSound iAVideo;
+    private final String pathGame = "src\\sound\\voces\\jugar-fast.wav";
+
+    public playSound IAGame;
     // adudio Musica
-    private final String pathMusica = "src\\sound\\voces\\bienvenidos.wav"; 
+    private final String pathMusica = "src\\sound\\voces\\musica-fast.wav"; 
+
     public playSound IAMusica;
     // Sound video 1
-    private final String pathFVideo1 = "src\\sound\\voces\\bienvenidos.wav"; 
+    private final String pathFVideo1 = "src\\sound\\voces\\video1-fast.wav"; 
     public playSound IAVideo1;
     //sound video2
-    private final String pathVideo2 = "src\\sound\\voces\\bienvenidos.wav"; 
+    private final String pathVideo2 = "src\\sound\\voces\\video2-fast.wav"; 
     public playSound IAVideo2;
+    // </editor-fold>
+
+    
+    
 
     
     
@@ -220,23 +228,26 @@ public class vMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel1MouseClicked
 
     private void jMenu1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu1MouseEntered
-          new Thread(){
+        new Thread(){
                 public void start(){
                     iACofre = new playSound(pathCofre);
                     iACofre.Init();
                     iACofre.Play();
+                    
                 }
             }.start();
+        
     }//GEN-LAST:event_jMenu1MouseEntered
 
     private void jMenu2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu2MouseEntered
+ 
         new Thread(){
                 public void start(){
-                    iAVideo = new playSound(pathVideo);
-                    iAVideo.Init();
-                    iAVideo.Play();
+                    IAGame = new playSound(pathGame);
+                    IAGame.Init();
+                    IAGame.Play();
                 }
-        }.start();
+            }.start();
     }//GEN-LAST:event_jMenu2MouseEntered
 
     private void jMenu3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu3MouseEntered
@@ -250,14 +261,13 @@ public class vMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenu3MouseEntered
 
     private void jMenu4MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu4MouseEntered
-       
-        new Thread(){
+       new Thread(){
                 public void start(){
                     IAVideo1 = new playSound(pathFVideo1);
                     IAVideo1.Init();
                     IAVideo1.Play();
                 }
-            }.start();
+        }.start();
     }//GEN-LAST:event_jMenu4MouseEntered
 
     private void jMenu5MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu5MouseEntered
@@ -267,7 +277,7 @@ public class vMenu extends javax.swing.JFrame {
                     IAVideo2.Init();
                     IAVideo2.Play();
                 }
-            }.start();
+        }.start();
     }//GEN-LAST:event_jMenu5MouseEntered
 
     private void jMenu1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu1MouseExited
