@@ -2,6 +2,7 @@
 package vista;
 
 import java.awt.event.KeyEvent;
+import modelo.playSound;
 
 public class vMenu extends javax.swing.JFrame {
 
@@ -14,6 +15,25 @@ public class vMenu extends javax.swing.JFrame {
     private int x = 550;
     private int y = 0;
     private int velocidad =6;
+    
+    // Audio Cofre Magico
+    private final String pathCofre = "src\\sound\\voces\\bienvenidos.wav";
+    public playSound iACofre;
+    // Audio Video
+    private final String pathVideo = "src\\sound\\voces\\bienvenidos.wav"; 
+    public playSound iAVideo;
+    // adudio Musica
+    private final String pathMusica = "src\\sound\\voces\\bienvenidos.wav"; 
+    public playSound IAMusica;
+    // Sound video 1
+    private final String pathFVideo1 = "src\\sound\\voces\\bienvenidos.wav"; 
+    public playSound IAVideo1;
+    //sound video2
+    private final String pathVideo2 = "src\\sound\\voces\\bienvenidos.wav"; 
+    public playSound IAVideo2;
+
+    
+    
     
     public vMenu() {
         initComponents();
@@ -62,6 +82,12 @@ public class vMenu extends javax.swing.JFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jMenu1MouseClicked(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jMenu1MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jMenu1MouseExited(evt);
+            }
         });
         menuBar.add(jMenu1);
 
@@ -69,6 +95,9 @@ public class vMenu extends javax.swing.JFrame {
         jMenu2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jMenu2MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jMenu2MouseEntered(evt);
             }
         });
         menuBar.add(jMenu2);
@@ -78,6 +107,9 @@ public class vMenu extends javax.swing.JFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jMenu3MouseClicked(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jMenu3MouseEntered(evt);
+            }
         });
         menuBar.add(jMenu3);
 
@@ -86,6 +118,9 @@ public class vMenu extends javax.swing.JFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jMenu4MouseClicked(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jMenu4MouseEntered(evt);
+            }
         });
         menuBar.add(jMenu4);
 
@@ -93,6 +128,9 @@ public class vMenu extends javax.swing.JFrame {
         jMenu5.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jMenu5MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jMenu5MouseEntered(evt);
             }
         });
         menuBar.add(jMenu5);
@@ -180,6 +218,61 @@ public class vMenu extends javax.swing.JFrame {
     private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
         desktopPane.setFocusable(true);
     }//GEN-LAST:event_jLabel1MouseClicked
+
+    private void jMenu1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu1MouseEntered
+          new Thread(){
+                public void start(){
+                    iACofre = new playSound(pathCofre);
+                    iACofre.Init();
+                    iACofre.Play();
+                }
+            }.start();
+    }//GEN-LAST:event_jMenu1MouseEntered
+
+    private void jMenu2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu2MouseEntered
+        new Thread(){
+                public void start(){
+                    iAVideo = new playSound(pathVideo);
+                    iAVideo.Init();
+                    iAVideo.Play();
+                }
+        }.start();
+    }//GEN-LAST:event_jMenu2MouseEntered
+
+    private void jMenu3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu3MouseEntered
+        new Thread(){
+                public void start(){
+                    IAMusica = new playSound(pathMusica);
+                    IAMusica.Init();
+                    IAMusica.Play();
+                }
+            }.start();
+    }//GEN-LAST:event_jMenu3MouseEntered
+
+    private void jMenu4MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu4MouseEntered
+       
+        new Thread(){
+                public void start(){
+                    IAVideo1 = new playSound(pathFVideo1);
+                    IAVideo1.Init();
+                    IAVideo1.Play();
+                }
+            }.start();
+    }//GEN-LAST:event_jMenu4MouseEntered
+
+    private void jMenu5MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu5MouseEntered
+        new Thread(){
+                public void start(){
+                    IAVideo2 = new playSound(pathVideo2);
+                    IAVideo2.Init();
+                    IAVideo2.Play();
+                }
+            }.start();
+    }//GEN-LAST:event_jMenu5MouseEntered
+
+    private void jMenu1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu1MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenu1MouseExited
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDesktopPane desktopPane;

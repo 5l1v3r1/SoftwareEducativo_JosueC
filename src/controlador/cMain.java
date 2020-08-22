@@ -5,6 +5,7 @@
  */
 package controlador;
 
+import modelo.playSound;
 import vista.Index;
 import vista.vMenu;
 
@@ -13,12 +14,19 @@ import vista.vMenu;
  * @author Josue
  */
 public class cMain {
+    
+  
     public static void main(String [ ] args ) {
     
-        Index index = new Index();
+         Index index = new Index();
         index.setLocationRelativeTo(null);
         index.setVisible(true);
         
+        
+       
+        
+        
+       
         //vMenu vista=new vMenu();
         //vista.setVisible(true);
     }
