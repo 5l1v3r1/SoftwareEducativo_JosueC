@@ -8,13 +8,15 @@ public class vIndex extends javax.swing.JFrame {
 
     private  mIconX inka = new mIconX("\\img\\index\\inka.gif",589,445);
     private  mIconX logo = new mIconX("\\img\\index\\logo.png",591-5,90-5);
-    private final String pathSound = "\\sound\\voces\\chuquisoft.wav"; 
+    private final String pathSound = "src\\sound\\voces\\chuquisoft.wav"; 
     public playSound soundInicio;
    
     public vIndex() {
         initComponents();
         
-        setIconImage(new ImageIcon("\\img\\index\\Escudo_imperio_inca.png").getImage());
+        //getClass().getResource
+        
+        setIconImage(new ImageIcon(getClass().getResource("/img/index/Escudo_imperio_inca.png")).getImage());
         AWTUtilities.setWindowOpaque(this, false);
         imgInka.setIcon(inka.Standard());
         imgLogo.setIcon(logo.Standard());
@@ -94,17 +96,17 @@ public class vIndex extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        // Reproducir sonido 
-//            new Thread(){
-//                public void start(){
-//                    soundInicio = new playSound(pathSound);
-//                    soundInicio.Init();
-//                    soundInicio.Play();
-//                }
-//            }.start();
-           // Movimiento inka
-           // imgEffect i = new imgEffect(imgInka,5,"src\\img\\index\\Escudo_imperio_inca.png",589,445);
-            //i.effectLate();
+         //Reproducir sonido 
+            new Thread(){
+                public void start(){
+                    soundInicio = new playSound(pathSound);
+                    soundInicio.Init();
+                    soundInicio.Play();
+                }
+            }.start();
+          //  Movimiento inka
+           // mIconX i = new mIconX(imgInka,5,"src\\img\\index\\Escudo_imperio_inca.png",589,445);
+           // i.effectLate();
                
     }//GEN-LAST:event_formWindowOpened
 
