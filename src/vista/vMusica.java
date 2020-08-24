@@ -5,44 +5,31 @@
  */
 package vista;
 
-import java.applet.Applet;
 import java.applet.AudioClip;
-import java.io.File;
 
 public class vMusica extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form vMusica
      */
-     private File Url = new File("src\\sound\\musica\\valicha.wav".replace("\\", "/"));
-     private AudioClip clip ;
-     
-     private File Url2 = new File("src\\sound\\musica\\Inti Raymi.wav".replace("\\", "/"));
-     private AudioClip clip2 ;
-     
-     private File Url3 = new File("src\\sound\\musica\\condor pasa.wav".replace("\\", "/"));
-     private AudioClip clip3 ;
+     // Audio Cofre Magico
+    private final String pathCofre =  "\\sound\\musica\\condor pasa.wav";
+    private AudioClip sCofre;
+    // Audio Video
+    private final String pathGame =  "\\sound\\musica\\Inti Raymi.wav";
+    private AudioClip sGame;
+    // adudio Musica
+    private final String pathMusica = "\\sound\\musica\\valicha.wav"; 
+    private AudioClip sMusica;
      
      private boolean playing = false;
     
     public vMusica() {
         initComponents();
         // Audio 
-        try {
-            clip = Applet.newAudioClip(Url.toURI().toURL());
-            System.out.println("audio aceptado");
-        } catch (Exception e) {
-        }
-        try {
-            clip2 = Applet.newAudioClip(Url2.toURI().toURL());
-            System.out.println("audio aceptado");
-        } catch (Exception e) {
-        }
-        try {
-            clip3 = Applet.newAudioClip(Url3.toURI().toURL());
-            System.out.println("audio aceptado");
-        } catch (Exception e) {
-        }
+       sCofre = java.applet.Applet.newAudioClip(getClass().getResource(pathCofre.replace("\\", "/")));
+        sGame = java.applet.Applet.newAudioClip(getClass().getResource(pathGame.replace("\\", "/")));
+        sMusica = java.applet.Applet.newAudioClip(getClass().getResource(pathMusica.replace("\\", "/")));
         
         
         
@@ -114,15 +101,14 @@ public class vMusica extends javax.swing.JInternalFrame {
             
             new Thread(){
                 public void start(){
-                   clip.play();
+                   sCofre.play();
                    playing = true;
                    System.out.println("Se reprodució audio");
                }
-
             }.start();
         } else{
             playing = false;
-            clip.stop();
+            sCofre.stop();
         }
         
   
@@ -134,33 +120,31 @@ public class vMusica extends javax.swing.JInternalFrame {
             
             new Thread(){
                 public void start(){
-                   clip2.play();
+                   sGame.play();
                    playing = true;
                    System.out.println("Se reprodució audio");
                }
-
             }.start();
         } else{
             playing = false;
-            clip2.stop();
+            sGame.stop();
         }
     }//GEN-LAST:event_mValichaActionPerformed
 
     private void MIntiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MIntiActionPerformed
       System.out.println("audio acction ");
-        if (!playing){
+      if (!playing){
             
             new Thread(){
                 public void start(){
-                   clip3.play();
+                   sMusica.play();
                    playing = true;
                    System.out.println("Se reprodució audio");
                }
-
             }.start();
         } else{
             playing = false;
-            clip3.stop();
+            sMusica.stop();
         }
     }//GEN-LAST:event_MIntiActionPerformed
 

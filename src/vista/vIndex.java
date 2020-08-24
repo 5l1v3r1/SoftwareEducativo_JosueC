@@ -1,15 +1,16 @@
 
 package vista;
 import com.sun.awt.AWTUtilities;
+import java.applet.AudioClip;
 import javax.swing.ImageIcon;
 import modelo.mIconX;
-import modelo.playSound;
 public class vIndex extends javax.swing.JFrame {
 
     private  mIconX inka = new mIconX("\\img\\index\\inka.gif",589,445);
     private  mIconX logo = new mIconX("\\img\\index\\logo.png",591-5,90-5);
-    private final String pathSound = "src\\sound\\voces\\chuquisoft.wav"; 
-    public playSound soundInicio;
+   //sonido de fondo
+    private AudioClip sonidoFondo;
+    private final  String pathFondo = "\\sound\\voces\\chuquisoft.wav".replace("\\", "/");
    
     public vIndex() {
         initComponents();
@@ -20,6 +21,7 @@ public class vIndex extends javax.swing.JFrame {
         AWTUtilities.setWindowOpaque(this, false);
         imgInka.setIcon(inka.Standard());
         imgLogo.setIcon(logo.Standard());
+         sonidoFondo = java.applet.Applet.newAudioClip(getClass().getResource(pathFondo));
     }
 
     @SuppressWarnings("unchecked")
@@ -99,10 +101,9 @@ public class vIndex extends javax.swing.JFrame {
          //Reproducir sonido 
             new Thread(){
                 public void start(){
-                    soundInicio = new playSound(pathSound);
-                    soundInicio.Init();
-                    soundInicio.Play();
-                }
+                   sonidoFondo.play();
+                   System.out.println("Se reprodució audio");
+               }
             }.start();
           //  Movimiento inka
            // mIconX i = new mIconX(imgInka,5,"src\\img\\index\\Escudo_imperio_inca.png",589,445);

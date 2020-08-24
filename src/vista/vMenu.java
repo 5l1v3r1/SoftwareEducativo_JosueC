@@ -1,13 +1,14 @@
 
 package vista;
 
+import java.applet.AudioClip;
 import java.awt.event.KeyEvent;
-import modelo.playSound;
+
 
 public class vMenu extends javax.swing.JFrame {
 
     private CofreMagico  vVGame= null;
-    private vJuego vVCofre  = null;
+    private vJuego vJJuego  = null;
     private vMusica vVMusica = null;
     public final int H = 600, W = 800;
     private vVideo1 vVVideo1 = null;
@@ -15,34 +16,33 @@ public class vMenu extends javax.swing.JFrame {
     private int x = 550;
     private int y = 0;
     private int velocidad =6;
-    
-   // <editor-fold defaultstate="collapsed" desc="sound Fast">
+
     // Audio Cofre Magico
-    private final String pathCofre =   "src\\sound\\voces\\jugar-fast.wav";
-
-    public playSound iACofre;
+    private final String pathCofre =  "\\sound\\voces\\El cofre mágico.wav";
+    private AudioClip sCofre;
     // Audio Video
-    private final String pathGame = "src\\sound\\voces\\El cofre mágico.wav";
-
-    public playSound IAGame;
+    private final String pathGame =  "\\sound\\voces\\jugar-fast.wav";
+    private AudioClip sGame;
     // adudio Musica
-    private final String pathMusica = "src\\sound\\voces\\musica-fast.wav"; 
-
-    public playSound IAMusica;
+    private final String pathMusica = "\\sound\\voces\\musica-fast.wav"; 
+    private AudioClip sMusica;
     // Sound video 1
-    private final String pathFVideo1 = "src\\sound\\voces\\ver un video.wav"; 
-    public playSound IAVideo1;
-    //sound video2
-    private final String pathVideo2 = "src\\sound\\voces\\ver un video.wav"; 
-    public playSound IAVideo2;
-    // </editor-fold>
+    private final String pathVideo1 = "\\sound\\voces\\ver un video.wav"; 
+    private AudioClip sVideo1;
+
+
 
    
     public vMenu() {
         initComponents();
         panelLienzo.setFocusable(true);
         imgInka.setLocation(x,y);
+        sCofre = java.applet.Applet.newAudioClip(getClass().getResource(pathCofre.replace("\\", "/")));
+        sGame = java.applet.Applet.newAudioClip(getClass().getResource(pathGame.replace("\\", "/")));
+        sMusica = java.applet.Applet.newAudioClip(getClass().getResource(pathMusica.replace("\\", "/")));
+        sVideo1 = java.applet.Applet.newAudioClip(getClass().getResource(pathVideo1.replace("\\", "/")));
 
+        
     }
 
     @SuppressWarnings("unchecked")
@@ -54,7 +54,7 @@ public class vMenu extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         menuBar = new javax.swing.JMenuBar();
         Juego = new javax.swing.JMenu();
-        itemGame = new javax.swing.JMenu();
+        itemCofreMagico = new javax.swing.JMenu();
         itemMusic = new javax.swing.JMenu();
         itemVideo1 = new javax.swing.JMenu();
         itemVideo2 = new javax.swing.JMenu();
@@ -99,21 +99,21 @@ public class vMenu extends javax.swing.JFrame {
         });
         menuBar.add(Juego);
 
-        itemGame.setText("Cofre Magico");
-        itemGame.addMouseListener(new java.awt.event.MouseAdapter() {
+        itemCofreMagico.setText("Cofre Magico");
+        itemCofreMagico.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                itemGameMouseClicked(evt);
+                itemCofreMagicoMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                itemGameMouseEntered(evt);
+                itemCofreMagicoMouseEntered(evt);
             }
         });
-        itemGame.addActionListener(new java.awt.event.ActionListener() {
+        itemCofreMagico.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                itemGameActionPerformed(evt);
+                itemCofreMagicoActionPerformed(evt);
             }
         });
-        menuBar.add(itemGame);
+        menuBar.add(itemCofreMagico);
 
         itemMusic.setText("Musica");
         itemMusic.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -174,25 +174,23 @@ public class vMenu extends javax.swing.JFrame {
             System.out.println("[Form] - The form exits");
         }
         
-        
-        
-        new Thread(){
+        //Reproducir sonido 
+            new Thread(){
                 public void start(){
-                    IAVideo2 = new playSound(pathVideo2);
-                    IAVideo2.Init();
-                    IAVideo2.Play();
-                }
-        }.start();
+                   sVideo1.play();
+                   System.out.println("Se reprodució audio");
+               }
+            }.start();
     }//GEN-LAST:event_itemVideo2MouseClicked
 
     private void itemVideo1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_itemVideo1MouseClicked
-         new Thread(){
+        //Reproducir sonido 
+            new Thread(){
                 public void start(){
-                    IAVideo1 = new playSound(pathFVideo1);
-                    IAVideo1.Init();
-                    IAVideo1.Play();
-                }
-        }.start();
+                   sVideo1.play();
+                   System.out.println("Se reprodució audio");
+               }
+            }.start();
         if (vVVideo1 == null || vVVideo1.isClosed()){
             vVVideo1 = new vVideo1();
             this.panelLienzo.add(vVVideo1);
@@ -203,13 +201,14 @@ public class vMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_itemVideo1MouseClicked
 
     private void itemMusicMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_itemMusicMouseClicked
-        new Thread(){
+        //Reproducir sonido 
+            new Thread(){
                 public void start(){
-                    IAMusica = new playSound(pathMusica);
-                    IAMusica.Init();
-                    IAMusica.Play();
-                }
+                   sMusica.play();
+                   System.out.println("Se reprodució audio");
+               }
             }.start();
+            
         if (vVMusica == null || vVMusica.isClosed()){
             vVMusica = new vMusica();
             this.panelLienzo.add(vVMusica);
@@ -219,7 +218,7 @@ public class vMenu extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_itemMusicMouseClicked
 
-    private void itemGameMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_itemGameMouseClicked
+    private void itemCofreMagicoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_itemCofreMagicoMouseClicked
         if (vVGame == null || vVGame.isClosed()){
             vVGame = new CofreMagico();
             this.panelLienzo.add(vVGame);
@@ -227,28 +226,27 @@ public class vMenu extends javax.swing.JFrame {
         }else{
             System.out.println("[Form] - The form exits");
         }
-         new Thread(){
+         //Reproducir sonido 
+            new Thread(){
                 public void start(){
-                    IAGame = new playSound(pathGame);
-                    IAGame.Init();
-                    IAGame.Play();
-                }
+                   sCofre.play();
+                   System.out.println("Se reprodució audio");
+               }
             }.start();
-    }//GEN-LAST:event_itemGameMouseClicked
+    }//GEN-LAST:event_itemCofreMagicoMouseClicked
 
     private void JuegoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JuegoMouseClicked
-        new Thread(){
+        //Reproducir sonido 
+            new Thread(){
                 public void start(){
-                    iACofre = new playSound(pathCofre);
-                    iACofre.Init();
-                    iACofre.Play();
-                    
-                }
+                   sGame.play();
+                   System.out.println("Se reprodució audio");
+               }
             }.start();
-        if (vVCofre == null || vVCofre.isClosed()){
-            vVCofre = new vJuego();
-            this.panelLienzo.add(vVCofre);
-            vVCofre.show(true);
+        if (vJJuego == null || vJJuego.isClosed()){
+            vJJuego = new vJuego();
+            this.panelLienzo.add(vJJuego);
+            vJJuego.show(true);
         }else{
             System.out.println("[Form] - The form exits");
         }
@@ -275,8 +273,8 @@ public class vMenu extends javax.swing.JFrame {
     private void JuegoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JuegoMouseEntered
     }//GEN-LAST:event_JuegoMouseEntered
 
-    private void itemGameMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_itemGameMouseEntered
-    }//GEN-LAST:event_itemGameMouseEntered
+    private void itemCofreMagicoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_itemCofreMagicoMouseEntered
+    }//GEN-LAST:event_itemCofreMagicoMouseEntered
 
     private void itemMusicMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_itemMusicMouseEntered
         
@@ -298,14 +296,14 @@ public class vMenu extends javax.swing.JFrame {
          
     }//GEN-LAST:event_JuegoActionPerformed
 
-    private void itemGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemGameActionPerformed
+    private void itemCofreMagicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemCofreMagicoActionPerformed
         
-    }//GEN-LAST:event_itemGameActionPerformed
+    }//GEN-LAST:event_itemCofreMagicoActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu Juego;
     private javax.swing.JLabel imgInka;
-    private javax.swing.JMenu itemGame;
+    private javax.swing.JMenu itemCofreMagico;
     private javax.swing.JMenu itemMusic;
     private javax.swing.JMenu itemVideo1;
     private javax.swing.JMenu itemVideo2;
