@@ -18,17 +18,32 @@ public class vMusica extends javax.swing.JInternalFrame {
     /**
      * Creates new form vMusica
      */
-     private File Url = new File("src\\sound\\musica\\".replace("\\", "/"));
+     private File Url = new File("src\\sound\\musica\\valicha.wav".replace("\\", "/"));
      private AudioClip clip ;
+     
+     private File Url2 = new File("src\\sound\\musica\\Inti Raymi.wav".replace("\\", "/"));
+     private AudioClip clip2 ;
+     
+     private File Url3 = new File("src\\sound\\musica\\condor pasa.wav".replace("\\", "/"));
+     private AudioClip clip3 ;
+     
      private boolean playing = false;
     
     public vMusica() {
         initComponents();
-        
-        
         // Audio 
         try {
             clip = Applet.newAudioClip(Url.toURI().toURL());
+            System.out.println("audio aceptado");
+        } catch (Exception e) {
+        }
+        try {
+            clip2 = Applet.newAudioClip(Url2.toURI().toURL());
+            System.out.println("audio aceptado");
+        } catch (Exception e) {
+        }
+        try {
+            clip3 = Applet.newAudioClip(Url3.toURI().toURL());
             System.out.println("audio aceptado");
         } catch (Exception e) {
         }
@@ -66,13 +81,23 @@ public class vMusica extends javax.swing.JInternalFrame {
                 mCondorActionPerformed(evt);
             }
         });
-        getContentPane().add(mCondor, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 400, 130, 40));
+        getContentPane().add(mCondor, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 480, 130, 40));
 
         mValicha.setText("Reproducir");
-        getContentPane().add(mValicha, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 400, 130, 40));
+        mValicha.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mValichaActionPerformed(evt);
+            }
+        });
+        getContentPane().add(mValicha, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 480, 130, 40));
 
         MInti.setText("Reproducir");
-        getContentPane().add(MInti, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 400, 130, 40));
+        MInti.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MIntiActionPerformed(evt);
+            }
+        });
+        getContentPane().add(MInti, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 480, 130, 40));
 
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 90)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -82,7 +107,7 @@ public class vMusica extends javax.swing.JInternalFrame {
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(4, 0, 770, 90));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/imagen.jpg"))); // NOI18N
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 780, 510));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 780, 610));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -104,16 +129,44 @@ public class vMusica extends javax.swing.JInternalFrame {
             clip.stop();
         }
         
-        
-        
-        
-        
-         
-        
-        
-        
-        
+  
     }//GEN-LAST:event_mCondorActionPerformed
+
+    private void mValichaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mValichaActionPerformed
+        System.out.println("audio acction ");
+        if (!playing){
+            
+            new Thread(){
+                public void start(){
+                   clip2.play();
+                   playing = true;
+                   System.out.println("Se reprodució audio");
+               }
+
+            }.start();
+        } else{
+            playing = false;
+            clip2.stop();
+        }
+    }//GEN-LAST:event_mValichaActionPerformed
+
+    private void MIntiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MIntiActionPerformed
+      System.out.println("audio acction ");
+        if (!playing){
+            
+            new Thread(){
+                public void start(){
+                   clip3.play();
+                   playing = true;
+                   System.out.println("Se reprodució audio");
+               }
+
+            }.start();
+        } else{
+            playing = false;
+            clip3.stop();
+        }
+    }//GEN-LAST:event_MIntiActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
