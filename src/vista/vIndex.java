@@ -2,12 +2,12 @@
 package vista;
 import com.sun.awt.AWTUtilities;
 import javax.swing.ImageIcon;
-import modelo.ImgC;
+import modelo.mIconX;
 import modelo.playSound;
 public class vIndex extends javax.swing.JFrame {
 
-    private  ImgC inka = new ImgC("\\img\\index\\inka.gif",589,445);
-    private  ImgC logo = new ImgC("\\img\\index\\logo.png",591-5,90-5);
+    private  mIconX inka = new mIconX("\\img\\index\\inka.gif",589,445);
+    private  mIconX logo = new mIconX("\\img\\index\\logo.png",591-5,90-5);
     private final String pathSound = "\\sound\\voces\\chuquisoft.wav"; 
     public playSound soundInicio;
    

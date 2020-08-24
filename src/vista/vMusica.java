@@ -5,6 +5,10 @@
  */
 package vista;
 
+import java.applet.Applet;
+import java.applet.AudioClip;
+import java.io.File;
+
 /**
  *
  * @author sebas
@@ -14,8 +18,23 @@ public class vMusica extends javax.swing.JInternalFrame {
     /**
      * Creates new form vMusica
      */
+     private File Url = new File("src\\sound\\musica\\".replace("\\", "/"));
+     private AudioClip clip ;
+     private boolean playing = false;
+    
     public vMusica() {
         initComponents();
+        
+        
+        // Audio 
+        try {
+            clip = Applet.newAudioClip(Url.toURI().toURL());
+            System.out.println("audio aceptado");
+        } catch (Exception e) {
+        }
+        
+        
+        
     }
 
     /**
@@ -27,37 +46,81 @@ public class vMusica extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        mCondor = new javax.swing.JButton();
+        mValicha = new javax.swing.JButton();
+        MInti = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
 
         setClosable(true);
         setIconifiable(true);
         setMaximizable(true);
+        setMaximumSize(new java.awt.Dimension(800, 600));
+        setMinimumSize(new java.awt.Dimension(800, 600));
+        setPreferredSize(new java.awt.Dimension(800, 600));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton1.setText("Escuchar  musica 1");
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 370, -1, -1));
+        mCondor.setText("Reproducir");
+        mCondor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mCondorActionPerformed(evt);
+            }
+        });
+        getContentPane().add(mCondor, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 400, 130, 40));
 
-        jButton2.setText("Escuchar Musica 2");
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 370, -1, -1));
+        mValicha.setText("Reproducir");
+        getContentPane().add(mValicha, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 400, 130, 40));
+
+        MInti.setText("Reproducir");
+        getContentPane().add(MInti, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 400, 130, 40));
 
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 90)); // NOI18N
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Musica");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, 364, 144));
+        jLabel1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(4, 0, 770, 90));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/ceremonia.jpg"))); // NOI18N
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(-40, 0, 760, 440));
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/imagen.jpg"))); // NOI18N
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 780, 510));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void mCondorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mCondorActionPerformed
+        System.out.println("audio acction ");
+        if (!playing){
+            
+            new Thread(){
+                public void start(){
+                   clip.play();
+                   playing = true;
+                   System.out.println("Se reprodució audio");
+               }
+
+            }.start();
+        } else{
+            playing = false;
+            clip.stop();
+        }
+        
+        
+        
+        
+        
+         
+        
+        
+        
+        
+    }//GEN-LAST:event_mCondorActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton MInti;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JButton mCondor;
+    private javax.swing.JButton mValicha;
     // End of variables declaration//GEN-END:variables
 }

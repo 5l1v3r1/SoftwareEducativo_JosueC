@@ -4,20 +4,20 @@
   <NonVisualComponents>
     <Menu class="javax.swing.JMenuBar" name="menuBar">
       <SubComponents>
-        <Menu class="javax.swing.JMenu" name="itemCofre">
+        <Menu class="javax.swing.JMenu" name="Juego">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Cofre Magico"/>
+            <Property name="text" type="java.lang.String" value="Juego"/>
           </Properties>
           <Events>
-            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="itemCofreMouseClicked"/>
-            <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="itemCofreMouseEntered"/>
-            <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="itemCofreMouseExited"/>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="itemCofreActionPerformed"/>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="JuegoMouseClicked"/>
+            <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="JuegoMouseEntered"/>
+            <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="JuegoMouseExited"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JuegoActionPerformed"/>
           </Events>
         </Menu>
         <Menu class="javax.swing.JMenu" name="itemGame">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Juego"/>
+            <Property name="text" type="java.lang.String" value="Cofre Magico"/>
           </Properties>
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="itemGameMouseClicked"/>
@@ -78,12 +78,12 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="panelLienzo" alignment="0" pref="804" max="32767" attributes="0"/>
+          <Component id="panelLienzo" min="-2" pref="849" max="-2" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="panelLienzo" alignment="0" pref="581" max="32767" attributes="0"/>
+          <Component id="panelLienzo" min="-2" pref="614" max="-2" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>
@@ -120,7 +120,7 @@
           </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="0" y="0" width="810" height="580"/>
+              <AbsoluteConstraints x="0" y="0" width="850" height="620"/>
             </Constraint>
           </Constraints>
         </Component>

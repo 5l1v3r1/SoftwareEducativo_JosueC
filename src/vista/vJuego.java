@@ -12,7 +12,7 @@ package vista;
 public class vJuego extends javax.swing.JInternalFrame {
 
     /**
-     * Creates new form vJuego
+     * Creates new form vCofreMagico
      */
     public vJuego() {
         initComponents();
@@ -27,8 +27,8 @@ public class vJuego extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setClosable(true);
@@ -36,14 +36,14 @@ public class vJuego extends javax.swing.JInternalFrame {
         setMaximizable(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton1.setText("Iniciar juego");
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 250, -1, -1));
+        jLabel2.setFont(new java.awt.Font("DialogInput", 0, 90)); // NOI18N
+        jLabel2.setText("Juego");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 20, -1, -1));
 
-        jLabel2.setFont(new java.awt.Font("Dubai", 0, 90)); // NOI18N
-        jLabel2.setText("Juegos");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, -20, -1, -1));
+        jButton1.setText("Contenido");
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 210, -1, -1));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/fondo (4).jpg"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/cuzco.jpg"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
