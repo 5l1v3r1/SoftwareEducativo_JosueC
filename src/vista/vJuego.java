@@ -5,10 +5,6 @@
  */
 package vista;
 
-/**
- *
- * @author sebas
- */
 public class vJuego extends javax.swing.JInternalFrame {
 
     /**

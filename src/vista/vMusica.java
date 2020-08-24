@@ -9,10 +9,6 @@ import java.applet.Applet;
 import java.applet.AudioClip;
 import java.io.File;
 
-/**
- *
- * @author sebas
- */
 public class vMusica extends javax.swing.JInternalFrame {
 
     /**

@@ -5,10 +5,7 @@
  */
 package vista;
 
-/**
- *
- * @author sebas
- */
+
 public class CofreMagico extends javax.swing.JInternalFrame {
 
     /**

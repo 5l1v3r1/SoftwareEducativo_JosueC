@@ -5,10 +5,6 @@
  */
 package vista;
 
-/**
- *
- * @author sebas
- */
 public class vVideo2 extends javax.swing.JInternalFrame {
 
     /**
