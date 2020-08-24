@@ -9,17 +9,17 @@ import java.awt.Image;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 
-public class ImagenS {
+public class ImgC {
     private int W;
     private int H;
     private String path;
     private ImageIcon icon ;
     
-    public ImagenS(String path,int W,int H){
-       this.path = path;
+    public ImgC(String path,int W,int H){
+       this.path = path.replace("\\", "/");
        this.W = W;
        this.H = H;
-       this.icon = new ImageIcon(this.path.replace("\\", "/"));
+       this.icon = new ImageIcon(getClass().getResource(this.path));
     }
     public Icon Standard(){
         ImageIcon icono = new ImageIcon(icon.getImage().getScaledInstance(W, H, Image.SCALE_DEFAULT));

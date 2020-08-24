@@ -6,19 +6,19 @@ import modelo.playSound;
 
 public class vMenu extends javax.swing.JFrame {
 
-    private vCofreMagico c= null;
-    private vJuego j = null;
-    private vMusica m = null;
-
-    private vVideo1 v1 = null;
-    private vVideo2 v2 = null;
+    private vCofreMagico vVCofre= null;
+    private vJuego vVGame = null;
+    private vMusica vVMusica = null;
+    public final int H = 600, W = 800;
+    private vVideo1 vVVideo1 = null;
+    private vVideo2 vVVideo2 = null;
     private int x = 550;
     private int y = 0;
     private int velocidad =6;
     
    // <editor-fold defaultstate="collapsed" desc="sound Fast">
     // Audio Cofre Magico
-    private final String pathCofre = "src\\sound\\voces\\cofre - fast.wav";
+    private final String pathCofre = "src\\sound\\voces\\El cofre mágico.wav";
 
     public playSound iACofre;
     // Audio Video
@@ -30,22 +30,17 @@ public class vMenu extends javax.swing.JFrame {
 
     public playSound IAMusica;
     // Sound video 1
-    private final String pathFVideo1 = "src\\sound\\voces\\video1-fast.wav"; 
+    private final String pathFVideo1 = "src\\sound\\voces\\ver un video.wav"; 
     public playSound IAVideo1;
     //sound video2
-    private final String pathVideo2 = "src\\sound\\voces\\video2-fast.wav"; 
+    private final String pathVideo2 = "src\\sound\\voces\\ver un video.wav"; 
     public playSound IAVideo2;
     // </editor-fold>
 
-    
-    
-
-    
-    
-    
+   
     public vMenu() {
         initComponents();
-        desktopPane.setFocusable(true);
+        panelLienzo.setFocusable(true);
         imgInka.setLocation(x,y);
 
     }
@@ -54,26 +49,26 @@ public class vMenu extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        desktopPane = new javax.swing.JDesktopPane();
+        panelLienzo = new javax.swing.JDesktopPane();
         imgInka = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         menuBar = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        jMenu2 = new javax.swing.JMenu();
-        jMenu3 = new javax.swing.JMenu();
-        jMenu4 = new javax.swing.JMenu();
-        jMenu5 = new javax.swing.JMenu();
+        itemCofre = new javax.swing.JMenu();
+        itemGame = new javax.swing.JMenu();
+        itemMusic = new javax.swing.JMenu();
+        itemVideo1 = new javax.swing.JMenu();
+        itemVideo2 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        desktopPane.addKeyListener(new java.awt.event.KeyAdapter() {
+        panelLienzo.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                desktopPaneKeyPressed(evt);
+                panelLienzoKeyPressed(evt);
             }
         });
 
         imgInka.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/inka.png"))); // NOI18N
-        desktopPane.add(imgInka);
+        panelLienzo.add(imgInka);
         imgInka.setBounds(650, 0, 150, 190);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/fondo (4).jpg"))); // NOI18N
@@ -82,66 +77,76 @@ public class vMenu extends javax.swing.JFrame {
                 jLabel1MouseClicked(evt);
             }
         });
-        desktopPane.add(jLabel1);
+        panelLienzo.add(jLabel1);
         jLabel1.setBounds(0, 0, 810, 580);
 
-        jMenu1.setText("Cofre Magico");
-        jMenu1.addMouseListener(new java.awt.event.MouseAdapter() {
+        itemCofre.setText("Cofre Magico");
+        itemCofre.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jMenu1MouseClicked(evt);
+                itemCofreMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jMenu1MouseEntered(evt);
+                itemCofreMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                jMenu1MouseExited(evt);
+                itemCofreMouseExited(evt);
             }
         });
-        menuBar.add(jMenu1);
+        itemCofre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itemCofreActionPerformed(evt);
+            }
+        });
+        menuBar.add(itemCofre);
 
-        jMenu2.setText("Juego");
-        jMenu2.addMouseListener(new java.awt.event.MouseAdapter() {
+        itemGame.setText("Juego");
+        itemGame.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jMenu2MouseClicked(evt);
+                itemGameMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jMenu2MouseEntered(evt);
+                itemGameMouseEntered(evt);
             }
         });
-        menuBar.add(jMenu2);
+        itemGame.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itemGameActionPerformed(evt);
+            }
+        });
+        menuBar.add(itemGame);
 
-        jMenu3.setText("Musica");
-        jMenu3.addMouseListener(new java.awt.event.MouseAdapter() {
+        itemMusic.setText("Musica");
+        itemMusic.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jMenu3MouseClicked(evt);
+                itemMusicMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jMenu3MouseEntered(evt);
+                itemMusicMouseEntered(evt);
             }
         });
-        menuBar.add(jMenu3);
+        menuBar.add(itemMusic);
 
-        jMenu4.setText("Video 1");
-        jMenu4.addMouseListener(new java.awt.event.MouseAdapter() {
+        itemVideo1.setText("Video 1");
+        itemVideo1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jMenu4MouseClicked(evt);
+                itemVideo1MouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jMenu4MouseEntered(evt);
+                itemVideo1MouseEntered(evt);
             }
         });
-        menuBar.add(jMenu4);
+        menuBar.add(itemVideo1);
 
-        jMenu5.setText("Video 2");
-        jMenu5.addMouseListener(new java.awt.event.MouseAdapter() {
+        itemVideo2.setText("Video 2");
+        itemVideo2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jMenu5MouseClicked(evt);
+                itemVideo2MouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jMenu5MouseEntered(evt);
+                itemVideo2MouseEntered(evt);
             }
         });
-        menuBar.add(jMenu5);
+        menuBar.add(itemVideo2);
 
         setJMenuBar(menuBar);
 
@@ -149,67 +154,107 @@ public class vMenu extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(desktopPane, javax.swing.GroupLayout.DEFAULT_SIZE, 804, Short.MAX_VALUE)
+            .addComponent(panelLienzo, javax.swing.GroupLayout.DEFAULT_SIZE, 804, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(desktopPane, javax.swing.GroupLayout.DEFAULT_SIZE, 581, Short.MAX_VALUE)
+            .addComponent(panelLienzo, javax.swing.GroupLayout.DEFAULT_SIZE, 581, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jMenu5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu5MouseClicked
-        if (v2 == null || v2.isClosed()){
-            v2 = new vVideo2();
-            this.desktopPane.add(v2);
-            v2.show(true);
+    private void itemVideo2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_itemVideo2MouseClicked
+        if (vVVideo2 == null || vVVideo2.isClosed()){
+            vVVideo2 = new vVideo2();
+            this.panelLienzo.add(vVVideo2);
+            vVVideo2.setLocation((W/2-(vVVideo2.getWidth()/2)), (H/2)-(vVVideo2.getHeight()/2));
+            vVVideo2.show(true);
         }else{
             System.out.println("[Form] - The form exits");
         }
-    }//GEN-LAST:event_jMenu5MouseClicked
+        
+        
+        
+        new Thread(){
+                public void start(){
+                    IAVideo2 = new playSound(pathVideo2);
+                    IAVideo2.Init();
+                    IAVideo2.Play();
+                }
+        }.start();
+    }//GEN-LAST:event_itemVideo2MouseClicked
 
-    private void jMenu4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu4MouseClicked
-        if (v1 == null || v1.isClosed()){
-            v1 = new vVideo1();
-            this.desktopPane.add(v1);
-            v1.show(true);
+    private void itemVideo1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_itemVideo1MouseClicked
+         new Thread(){
+                public void start(){
+                    IAVideo1 = new playSound(pathFVideo1);
+                    IAVideo1.Init();
+                    IAVideo1.Play();
+                }
+        }.start();
+        if (vVVideo1 == null || vVVideo1.isClosed()){
+            vVVideo1 = new vVideo1();
+            this.panelLienzo.add(vVVideo1);
+            vVVideo1.show(true);
         }else{
             System.out.println("[Form] - The form exits");
         }
-    }//GEN-LAST:event_jMenu4MouseClicked
+    }//GEN-LAST:event_itemVideo1MouseClicked
 
-    private void jMenu3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu3MouseClicked
-        if (m == null || m.isClosed()){
-            m = new vMusica();
-            this.desktopPane.add(m);
-            m.show(true);
+    private void itemMusicMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_itemMusicMouseClicked
+        new Thread(){
+                public void start(){
+                    IAMusica = new playSound(pathMusica);
+                    IAMusica.Init();
+                    IAMusica.Play();
+                }
+            }.start();
+        if (vVMusica == null || vVMusica.isClosed()){
+            vVMusica = new vMusica();
+            this.panelLienzo.add(vVMusica);
+            vVMusica.show(true);
         }else{
             System.out.println("[Form] - The form exits");
         }
-    }//GEN-LAST:event_jMenu3MouseClicked
+    }//GEN-LAST:event_itemMusicMouseClicked
 
-    private void jMenu2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu2MouseClicked
-        if (j == null || j.isClosed()){
-            j = new vJuego();
-            this.desktopPane.add(j);
-            j.show(true);
+    private void itemGameMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_itemGameMouseClicked
+        if (vVGame == null || vVGame.isClosed()){
+            vVGame = new vJuego();
+            this.panelLienzo.add(vVGame);
+            vVGame.show(true);
         }else{
             System.out.println("[Form] - The form exits");
         }
-    }//GEN-LAST:event_jMenu2MouseClicked
+         new Thread(){
+                public void start(){
+                    IAGame = new playSound(pathGame);
+                    IAGame.Init();
+                    IAGame.Play();
+                }
+            }.start();
+    }//GEN-LAST:event_itemGameMouseClicked
 
-    private void jMenu1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu1MouseClicked
-        if (c == null || c.isClosed()){
-            c = new vCofreMagico();
-            this.desktopPane.add(c);
-            c.show(true);
+    private void itemCofreMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_itemCofreMouseClicked
+        new Thread(){
+                public void start(){
+                    iACofre = new playSound(pathCofre);
+                    iACofre.Init();
+                    iACofre.Play();
+                    
+                }
+            }.start();
+        if (vVCofre == null || vVCofre.isClosed()){
+            vVCofre = new vCofreMagico();
+            this.panelLienzo.add(vVCofre);
+            vVCofre.show(true);
         }else{
             System.out.println("[Form] - The form exits");
         }
-    }//GEN-LAST:event_jMenu1MouseClicked
+    }//GEN-LAST:event_itemCofreMouseClicked
 
-    private void desktopPaneKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_desktopPaneKeyPressed
+    private void panelLienzoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_panelLienzoKeyPressed
          switch(evt.getExtendedKeyCode()){
             case KeyEvent.VK_UP:    System.out.println("press Key Up");     y = y-velocidad; break;
             case KeyEvent.VK_DOWN:  System.out.println("press Key Down");   y = y+velocidad; break;
@@ -221,79 +266,52 @@ public class vMenu extends javax.swing.JFrame {
         
         
         
-    }//GEN-LAST:event_desktopPaneKeyPressed
+    }//GEN-LAST:event_panelLienzoKeyPressed
 
     private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
-        desktopPane.setFocusable(true);
+        panelLienzo.setFocusable(true);
     }//GEN-LAST:event_jLabel1MouseClicked
 
-    private void jMenu1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu1MouseEntered
-        new Thread(){
-                public void start(){
-                    iACofre = new playSound(pathCofre);
-                    iACofre.Init();
-                    iACofre.Play();
-                    
-                }
-            }.start();
+    private void itemCofreMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_itemCofreMouseEntered
+    }//GEN-LAST:event_itemCofreMouseEntered
+
+    private void itemGameMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_itemGameMouseEntered
+    }//GEN-LAST:event_itemGameMouseEntered
+
+    private void itemMusicMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_itemMusicMouseEntered
         
-    }//GEN-LAST:event_jMenu1MouseEntered
+    }//GEN-LAST:event_itemMusicMouseEntered
 
-    private void jMenu2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu2MouseEntered
- 
-        new Thread(){
-                public void start(){
-                    IAGame = new playSound(pathGame);
-                    IAGame.Init();
-                    IAGame.Play();
-                }
-            }.start();
-    }//GEN-LAST:event_jMenu2MouseEntered
+    private void itemVideo1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_itemVideo1MouseEntered
+      
+    }//GEN-LAST:event_itemVideo1MouseEntered
 
-    private void jMenu3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu3MouseEntered
-        new Thread(){
-                public void start(){
-                    IAMusica = new playSound(pathMusica);
-                    IAMusica.Init();
-                    IAMusica.Play();
-                }
-            }.start();
-    }//GEN-LAST:event_jMenu3MouseEntered
+    private void itemVideo2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_itemVideo2MouseEntered
 
-    private void jMenu4MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu4MouseEntered
-       new Thread(){
-                public void start(){
-                    IAVideo1 = new playSound(pathFVideo1);
-                    IAVideo1.Init();
-                    IAVideo1.Play();
-                }
-        }.start();
-    }//GEN-LAST:event_jMenu4MouseEntered
+    }//GEN-LAST:event_itemVideo2MouseEntered
 
-    private void jMenu5MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu5MouseEntered
-        new Thread(){
-                public void start(){
-                    IAVideo2 = new playSound(pathVideo2);
-                    IAVideo2.Init();
-                    IAVideo2.Play();
-                }
-        }.start();
-    }//GEN-LAST:event_jMenu5MouseEntered
-
-    private void jMenu1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu1MouseExited
+    private void itemCofreMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_itemCofreMouseExited
         // TODO add your handling code here:
-    }//GEN-LAST:event_jMenu1MouseExited
+    }//GEN-LAST:event_itemCofreMouseExited
+
+    private void itemCofreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemCofreActionPerformed
+         
+    }//GEN-LAST:event_itemCofreActionPerformed
+
+    private void itemGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemGameActionPerformed
+        
+    }//GEN-LAST:event_itemGameActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JDesktopPane desktopPane;
     private javax.swing.JLabel imgInka;
+    private javax.swing.JMenu itemCofre;
+    private javax.swing.JMenu itemGame;
+    private javax.swing.JMenu itemMusic;
+    private javax.swing.JMenu itemVideo1;
+    private javax.swing.JMenu itemVideo2;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu3;
-    private javax.swing.JMenu jMenu4;
-    private javax.swing.JMenu jMenu5;
     private javax.swing.JMenuBar menuBar;
+    private javax.swing.JDesktopPane panelLienzo;
     // End of variables declaration//GEN-END:variables
 
 }
