@@ -3,6 +3,7 @@ package vista;
 
 import java.applet.AudioClip;
 import java.awt.event.KeyEvent;
+import javax.swing.ImageIcon;
 
 
 public class vMenu extends javax.swing.JFrame {
@@ -41,8 +42,7 @@ public class vMenu extends javax.swing.JFrame {
         sGame = java.applet.Applet.newAudioClip(getClass().getResource(pathGame.replace("\\", "/")));
         sMusica = java.applet.Applet.newAudioClip(getClass().getResource(pathMusica.replace("\\", "/")));
         sVideo1 = java.applet.Applet.newAudioClip(getClass().getResource(pathVideo1.replace("\\", "/")));
-
-        
+        setIconImage(new ImageIcon(getClass().getResource("/img/index/Escudo_imperio_inca.png")).getImage());
     }
 
     @SuppressWarnings("unchecked")
@@ -58,6 +58,7 @@ public class vMenu extends javax.swing.JFrame {
         itemMusic = new javax.swing.JMenu();
         itemVideo1 = new javax.swing.JMenu();
         itemVideo2 = new javax.swing.JMenu();
+        vAbout = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -147,6 +148,14 @@ public class vMenu extends javax.swing.JFrame {
             }
         });
         menuBar.add(itemVideo2);
+
+        vAbout.setText("Acerca de");
+        vAbout.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                vAboutMouseClicked(evt);
+            }
+        });
+        menuBar.add(vAbout);
 
         setJMenuBar(menuBar);
 
@@ -300,6 +309,14 @@ public class vMenu extends javax.swing.JFrame {
         
     }//GEN-LAST:event_itemCofreMagicoActionPerformed
 
+    private void vAboutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_vAboutMouseClicked
+        
+        vAbout about = new vAbout();
+        about.setLocationRelativeTo(null);
+        about.setVisible(true);
+        
+    }//GEN-LAST:event_vAboutMouseClicked
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu Juego;
     private javax.swing.JLabel imgInka;
@@ -310,6 +327,7 @@ public class vMenu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JMenuBar menuBar;
     private javax.swing.JDesktopPane panelLienzo;
+    private javax.swing.JMenu vAbout;
     // End of variables declaration//GEN-END:variables
 
 }

@@ -96,20 +96,7 @@ public class vMusica extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void mCondorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mCondorActionPerformed
-        System.out.println("audio acction ");
-        if (!playing){
-            
-            new Thread(){
-                public void start(){
-                   sCofre.play();
-                   playing = true;
-                   System.out.println("Se reprodució audio");
-               }
-            }.start();
-        } else{
-            playing = false;
-            sCofre.stop();
-        }
+        
         
   
     }//GEN-LAST:event_mCondorActionPerformed

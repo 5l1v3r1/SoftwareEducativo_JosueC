@@ -21,7 +21,7 @@ public class vIndex extends javax.swing.JFrame {
         AWTUtilities.setWindowOpaque(this, false);
         imgInka.setIcon(inka.Standard());
         imgLogo.setIcon(logo.Standard());
-         sonidoFondo = java.applet.Applet.newAudioClip(getClass().getResource(pathFondo));
+        sonidoFondo = java.applet.Applet.newAudioClip(getClass().getResource(pathFondo));
     }
 
     @SuppressWarnings("unchecked")
