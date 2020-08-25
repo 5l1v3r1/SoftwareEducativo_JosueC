@@ -6,11 +6,7 @@
 package vista;
 
 import com.sun.awt.AWTUtilities;
-import java.io.IOException;
-import java.net.URISyntaxException;
-import java.net.URL;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.applet.AudioClip;
 import javax.swing.ImageIcon;
 import modelo.URLX;
 import modelo.mIconX;
@@ -21,13 +17,13 @@ import modelo.mIconX;
  * @author sebas
  */
 public class vAbout extends javax.swing.JFrame {
-
-    private  final mIconX iOk = new mIconX("\\img\\about\\btn.png".replace("\\","/"),210,160);
-    private  final mIconX iFB = new mIconX("\\img\\redes\\1.png".replace("\\","/"),45,45);
-    private  final mIconX iTW = new mIconX("\\img\\redes\\2.png".replace("\\","/"),45,45);
-    private  final mIconX iC = new mIconX("\\img\\redes\\4.png".replace("\\","/"),45,45);
-    private  final mIconX iI = new mIconX("\\img\\redes\\6.png".replace("\\","/"),45,45);
-    private  final mIconX iY = new mIconX("\\img\\redes\\5.png".replace("\\","/"),45,45);
+    private final int btn = 45; 
+    private  final mIconX iOk = new mIconX("\\img\\about\\btn.png".replace("\\","/"),220,160,15);
+    private  final mIconX iFB = new mIconX("\\img\\redes\\1.png".replace("\\","/"),btn,btn,5);
+    private  final mIconX iTW = new mIconX("\\img\\redes\\2.png".replace("\\","/"),btn,btn,5);
+    private  final mIconX iC = new mIconX("\\img\\redes\\4.png".replace("\\","/"),btn,btn,5);
+    private  final mIconX iI = new mIconX("\\img\\redes\\6.png".replace("\\","/"),btn,btn,5);
+    private  final mIconX iY = new mIconX("\\img\\redes\\5.png".replace("\\","/"),btn,btn,5);
     private  final String txtPre = "-- Redes Sociales --";
     private  final String txtT = "www.twiter.com/JosueChuqui";
     private  final String txtY = "www.youtube.com/channel/UCF5qCAn-A9Ypk87nbhPQ96w";
@@ -46,6 +42,7 @@ public class vAbout extends javax.swing.JFrame {
         AWTUtilities.setWindowOpaque(this, false);
         
         // imgInka.setIcon(inka.Standard());
+
         imgOk.setIcon(iOk.Standard());
         imgFB.setIcon(iFB.Standard());
         imgTw.setIcon(iTW.Standard());
@@ -270,7 +267,7 @@ public class vAbout extends javax.swing.JFrame {
                 imgOkMouseReleased(evt);
             }
         });
-        getContentPane().add(imgOk, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 350, 230, 180));
+        getContentPane().add(imgOk, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 350, 220, 160));
 
         imgfondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/about/background.png"))); // NOI18N
         getContentPane().add(imgfondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 710, 480));
@@ -405,24 +402,68 @@ public class vAbout extends javax.swing.JFrame {
     private void imgFBMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imgFBMouseClicked
 
         url.goToURL(txtF);
-
+        new Thread(){
+                public void start(){
+                   final String pathVideo1 = "\\sound\\voces\\redes\\facebook2.wav"; 
+                   AudioClip sVideo1;
+                   sVideo1 = java.applet.Applet.newAudioClip(getClass().getResource(pathVideo1.replace("\\", "/")));
+                   sVideo1.play();
+                   System.out.println("Se reprodució audio");
+               }
+            }.start();
      
     }//GEN-LAST:event_imgFBMouseClicked
 
     private void imgTwMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imgTwMouseClicked
         url.goToURL(txtT);
+        new Thread(){
+                public void start(){
+                   final String pathVideo1 = "\\sound\\voces\\redes\\twiter.wav"; 
+                   AudioClip sVideo1;
+                   sVideo1 = java.applet.Applet.newAudioClip(getClass().getResource(pathVideo1.replace("\\", "/")));
+                   sVideo1.play();
+                   System.out.println("Se reprodució audio");
+               }
+            }.start();
     }//GEN-LAST:event_imgTwMouseClicked
 
     private void imgInstMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imgInstMouseClicked
         url.goToURL(txtI);
+        new Thread(){
+                public void start(){
+                   final String pathVideo1 = "\\sound\\voces\\redes\\instagram.wav"; 
+                   AudioClip sVideo1;
+                   sVideo1 = java.applet.Applet.newAudioClip(getClass().getResource(pathVideo1.replace("\\", "/")));
+                   sVideo1.play();
+                   System.out.println("Se reprodució audio");
+               }
+            }.start();
     }//GEN-LAST:event_imgInstMouseClicked
 
     private void imgYouMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imgYouMouseClicked
         url.goToURL(txtY);
+        new Thread(){
+                public void start(){
+                   final String pathVideo1 = "\\sound\\voces\\redes\\youtube.wav"; 
+                   AudioClip sVideo1;
+                   sVideo1 = java.applet.Applet.newAudioClip(getClass().getResource(pathVideo1.replace("\\", "/")));
+                   sVideo1.play();
+                   System.out.println("Se reprodució audio");
+               }
+            }.start();
     }//GEN-LAST:event_imgYouMouseClicked
 
     private void imgCorreoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imgCorreoMouseClicked
         url.goToURL("mailto:"+txtC);
+        new Thread(){
+                public void start(){
+                   final String pathVideo1 = "\\sound\\voces\\redes\\gmail.wav"; 
+                   AudioClip sVideo1;
+                   sVideo1 = java.applet.Applet.newAudioClip(getClass().getResource(pathVideo1.replace("\\", "/")));
+                   sVideo1.play();
+                   System.out.println("Se reprodució audio");
+               }
+            }.start();
     }//GEN-LAST:event_imgCorreoMouseClicked
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

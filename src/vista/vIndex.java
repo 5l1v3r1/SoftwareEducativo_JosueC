@@ -6,8 +6,8 @@ import javax.swing.ImageIcon;
 import modelo.mIconX;
 public class vIndex extends javax.swing.JFrame {
 
-    private  mIconX inka = new mIconX("\\img\\index\\inka.gif",589,445);
-    private  mIconX logo = new mIconX("\\img\\index\\logo.png",591-5,90-5);
+    private  mIconX inka = new mIconX("\\img\\index\\inka.gif",589,455,50);
+    private  mIconX logo = new mIconX("\\img\\index\\logo.png",591,90,7);
    //sonido de fondo
     private AudioClip sonidoFondo;
     private final  String pathFondo = "\\sound\\voces\\chuquisoft.wav".replace("\\", "/");
