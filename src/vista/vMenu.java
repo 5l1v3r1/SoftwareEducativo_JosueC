@@ -13,7 +13,7 @@ public class vMenu extends javax.swing.JFrame {
     private vMusica vVMusica = null;
     public final int H = 600, W = 800;
     private vVideo1 vVVideo1 = null;
-    private vVideo2 vVVideo2 = null;
+    private vVideo22 vVVideo2 = null;
     private int x = 550;
     private int y = 0;
     private int velocidad =6;
@@ -175,7 +175,7 @@ public class vMenu extends javax.swing.JFrame {
 
     private void itemVideo2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_itemVideo2MouseClicked
         if (vVVideo2 == null || vVVideo2.isClosed()){
-            vVVideo2 = new vVideo2();
+            vVVideo2 = new vVideo22();
             this.panelLienzo.add(vVVideo2);
             vVVideo2.setLocation((W/2-(vVVideo2.getWidth()/2)), (H/2)-(vVVideo2.getHeight()/2));
             vVVideo2.show(true);
