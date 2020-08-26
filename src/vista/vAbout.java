@@ -85,6 +85,7 @@ public class vAbout extends javax.swing.JFrame {
         imgfondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Acerca de:");
         setUndecorated(true);
         addContainerListener(new java.awt.event.ContainerAdapter() {
             public void componentAdded(java.awt.event.ContainerEvent evt) {

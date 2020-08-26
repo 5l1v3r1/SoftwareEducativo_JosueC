@@ -61,6 +61,7 @@ public class vMenu extends javax.swing.JFrame {
         vAbout = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Chuqui Soft ");
 
         panelLienzo.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {

@@ -56,6 +56,7 @@ public class vVideo22 extends javax.swing.JInternalFrame {
 
         setBackground(new java.awt.Color(102, 102, 102));
         setClosable(true);
+        setTitle("Video - Inti Raymi Cusco");
         setFocusable(false);
         setMaximumSize(new java.awt.Dimension(800, 449));
         setMinimumSize(new java.awt.Dimension(800, 449));

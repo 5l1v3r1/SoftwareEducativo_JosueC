@@ -56,6 +56,7 @@ public class vVideo1 extends javax.swing.JInternalFrame {
 
         setBackground(new java.awt.Color(102, 102, 102));
         setClosable(true);
+        setTitle("Video - Inti Raymi Ceremonia");
         setFocusable(false);
         setMaximumSize(new java.awt.Dimension(800, 449));
         setMinimumSize(new java.awt.Dimension(800, 449));
@@ -188,7 +189,7 @@ public class vVideo1 extends javax.swing.JInternalFrame {
         lTitle.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
         lTitle.setForeground(new java.awt.Color(255, 255, 255));
         lTitle.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        lTitle.setText("Inti Raymi - Cusco");
+        lTitle.setText("Inti Raymi Ceremonia");
         lTitle.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         lTitle.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
 
