@@ -88,16 +88,30 @@ public class vMusica extends javax.swing.JInternalFrame {
         jLabel1.setText("Musica");
         jLabel1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(4, 0, 770, 90));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 770, 90));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/imagen.jpg"))); // NOI18N
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 780, 610));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 780, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void mCondorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mCondorActionPerformed
-        
+        System.out.println("audio acction ");
+      if (!playing){
+            mCondor.setText("Pausar");
+            new Thread(){
+                public void start(){
+                   sCofre.play();
+                   playing = true;
+                   System.out.println("Se reprodució audio");
+               }
+            }.start();
+        } else{
+            playing = false;
+            mCondor.setText("Reproducir");
+            sCofre.stop();
+        }
         
   
     }//GEN-LAST:event_mCondorActionPerformed
@@ -105,7 +119,7 @@ public class vMusica extends javax.swing.JInternalFrame {
     private void mValichaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mValichaActionPerformed
         System.out.println("audio acction ");
         if (!playing){
-            
+            mValicha.setText("Pausar");
             new Thread(){
                 public void start(){
                    sGame.play();
@@ -115,6 +129,7 @@ public class vMusica extends javax.swing.JInternalFrame {
             }.start();
         } else{
             playing = false;
+            mValicha.setText("Reproducir");
             sGame.stop();
         }
     }//GEN-LAST:event_mValichaActionPerformed
@@ -122,7 +137,7 @@ public class vMusica extends javax.swing.JInternalFrame {
     private void MIntiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MIntiActionPerformed
       System.out.println("audio acction ");
       if (!playing){
-            
+            MInti.setText("Pausar");
             new Thread(){
                 public void start(){
                    sMusica.play();
@@ -132,6 +147,7 @@ public class vMusica extends javax.swing.JInternalFrame {
             }.start();
         } else{
             playing = false;
+            MInti.setText("Reproducir");
             sMusica.stop();
         }
     }//GEN-LAST:event_MIntiActionPerformed

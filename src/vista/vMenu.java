@@ -3,13 +3,22 @@ package vista;
 
 import java.applet.AudioClip;
 import java.awt.event.KeyEvent;
+import java.net.URISyntaxException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 
 
 public class vMenu extends javax.swing.JFrame {
 
     private CofreMagico  vVGame= null;
-    private vJuego vJJuego  = null;
+    private Game1 game1  = null;
+    private Game2 game2  = null;
+    private Game3 game3  = null;
+    private Game4 game4  = null;
+    private Principal pri  = null;
+    
+    
     private vMusica vVMusica = null;
     public final int H = 600, W = 800;
     private vVideo1 vVVideo1 = null;
@@ -53,11 +62,16 @@ public class vMenu extends javax.swing.JFrame {
         imgInka = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         menuBar = new javax.swing.JMenuBar();
-        Juego = new javax.swing.JMenu();
+        jMenu2 = new javax.swing.JMenu();
         itemCofreMagico = new javax.swing.JMenu();
         itemMusic = new javax.swing.JMenu();
         itemVideo1 = new javax.swing.JMenu();
         itemVideo2 = new javax.swing.JMenu();
+        jMenu1 = new javax.swing.JMenu();
+        JuegoI1 = new javax.swing.JMenuItem();
+        jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
+        jMenuItem3 = new javax.swing.JMenuItem();
         vAbout = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -82,24 +96,13 @@ public class vMenu extends javax.swing.JFrame {
         panelLienzo.add(jLabel1);
         jLabel1.setBounds(0, 0, 850, 620);
 
-        Juego.setText("Juego");
-        Juego.addMouseListener(new java.awt.event.MouseAdapter() {
+        jMenu2.setText("Principal");
+        jMenu2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                JuegoMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                JuegoMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                JuegoMouseExited(evt);
+                jMenu2MouseClicked(evt);
             }
         });
-        Juego.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JuegoActionPerformed(evt);
-            }
-        });
-        menuBar.add(Juego);
+        menuBar.add(jMenu2);
 
         itemCofreMagico.setText("Cofre Magico");
         itemCofreMagico.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -149,6 +152,62 @@ public class vMenu extends javax.swing.JFrame {
             }
         });
         menuBar.add(itemVideo2);
+
+        jMenu1.setText("Juegos");
+
+        JuegoI1.setText("Puzzle - imagen 1");
+        JuegoI1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                JuegoI1MouseClicked(evt);
+            }
+        });
+        JuegoI1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JuegoI1ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(JuegoI1);
+
+        jMenuItem1.setText("Puzzle - imagen 2");
+        jMenuItem1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenuItem1MouseClicked(evt);
+            }
+        });
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem1);
+
+        jMenuItem2.setText("Puzzle - imagen 3");
+        jMenuItem2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenuItem2MouseClicked(evt);
+            }
+        });
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem2);
+
+        jMenuItem3.setText("Puzzle - imagen 4");
+        jMenuItem3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenuItem3MouseClicked(evt);
+            }
+        });
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem3ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem3);
+
+        menuBar.add(jMenu1);
 
         vAbout.setText("Acerca de");
         vAbout.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -245,23 +304,6 @@ public class vMenu extends javax.swing.JFrame {
             }.start();
     }//GEN-LAST:event_itemCofreMagicoMouseClicked
 
-    private void JuegoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JuegoMouseClicked
-        //Reproducir sonido 
-            new Thread(){
-                public void start(){
-                   sGame.play();
-                   System.out.println("Se reprodució audio");
-               }
-            }.start();
-        if (vJJuego == null || vJJuego.isClosed()){
-            vJJuego = new vJuego();
-            this.panelLienzo.add(vJJuego);
-            vJJuego.show(true);
-        }else{
-            System.out.println("[Form] - The form exits");
-        }
-    }//GEN-LAST:event_JuegoMouseClicked
-
     private void panelLienzoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_panelLienzoKeyPressed
          switch(evt.getExtendedKeyCode()){
             case KeyEvent.VK_UP:    System.out.println("press Key Up");     y = y-velocidad; break;
@@ -280,9 +322,6 @@ public class vMenu extends javax.swing.JFrame {
         panelLienzo.setFocusable(true);
     }//GEN-LAST:event_jLabel1MouseClicked
 
-    private void JuegoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JuegoMouseEntered
-    }//GEN-LAST:event_JuegoMouseEntered
-
     private void itemCofreMagicoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_itemCofreMagicoMouseEntered
     }//GEN-LAST:event_itemCofreMagicoMouseEntered
 
@@ -298,14 +337,6 @@ public class vMenu extends javax.swing.JFrame {
 
     }//GEN-LAST:event_itemVideo2MouseEntered
 
-    private void JuegoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JuegoMouseExited
-        // TODO add your handling code here:
-    }//GEN-LAST:event_JuegoMouseExited
-
-    private void JuegoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JuegoActionPerformed
-         
-    }//GEN-LAST:event_JuegoActionPerformed
-
     private void itemCofreMagicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemCofreMagicoActionPerformed
         
     }//GEN-LAST:event_itemCofreMagicoActionPerformed
@@ -318,14 +349,150 @@ public class vMenu extends javax.swing.JFrame {
         
     }//GEN-LAST:event_vAboutMouseClicked
 
+    private void JuegoI1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JuegoI1MouseClicked
+          
+
+
+
+    }//GEN-LAST:event_JuegoI1MouseClicked
+
+    private void jMenuItem3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuItem3MouseClicked
+
+           
+    }//GEN-LAST:event_jMenuItem3MouseClicked
+
+    private void jMenuItem2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuItem2MouseClicked
+       
+    }//GEN-LAST:event_jMenuItem2MouseClicked
+
+    private void jMenuItem1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuItem1MouseClicked
+         
+
+    }//GEN-LAST:event_jMenuItem1MouseClicked
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+       //Reproducir sonido 
+            new Thread(){
+                public void start(){
+                   sGame.play();
+                   System.out.println("Se reprodució audio");
+               }
+            }.start();
+            
+        if (game2 == null || game2.isClosed()){
+            try {
+                game2 = new Game2();
+                this.panelLienzo.add(game2);
+                game2.show(true);
+                game2.setVisible(true);
+            } catch (URISyntaxException ex) {
+               Logger.getLogger(vMenu.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }else{
+            System.out.println("[Form] - The form exits");
+        }
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void JuegoI1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JuegoI1ActionPerformed
+ new Thread(){
+                public void start(){
+                   sGame.play();
+                   System.out.println("Se reprodució audio");
+               }
+            }.start();
+            
+        if (game1 == null || game1.isClosed()){
+            try {
+                game1 = new Game1();
+                this.panelLienzo.add(game1);
+                game1.show(true);
+                game1.setVisible(true);
+            } catch (URISyntaxException ex) {
+               Logger.getLogger(vMenu.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }else{
+            System.out.println("[Form] - The form exits");
+        }      
+        
+        
+    }//GEN-LAST:event_JuegoI1ActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+         //Reproducir sonido 
+            new Thread(){
+                public void start(){
+                   sGame.play();
+                   System.out.println("Se reprodució audio");
+               }
+            }.start();
+            
+        if (game3 == null || game3.isClosed()){
+            try {
+                game3 = new Game3();
+                this.panelLienzo.add(game3);
+                game3.show(true);
+                game3.setVisible(true);
+            } catch (URISyntaxException ex) {
+               Logger.getLogger(vMenu.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }else{
+            System.out.println("[Form] - The form exits");
+        }
+        
+        
+        
+        
+        
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+        new Thread(){
+                public void start(){
+                   sGame.play();
+                   System.out.println("Se reprodució audio");
+               }
+            }.start();
+            
+        if (game4 == null || game4.isClosed()){
+            try {
+                game4 = new Game4();
+                this.panelLienzo.add(game4);
+                game4.show(true);
+                game4.setVisible(true);
+            } catch (URISyntaxException ex) {
+               Logger.getLogger(vMenu.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }else{
+            System.out.println("[Form] - The form exits");
+        }
+        
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
+
+    private void jMenu2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu2MouseClicked
+        if (pri == null || pri.isClosed()){
+                pri = new Principal();
+                this.panelLienzo.add(pri);
+                pri.show(true);
+                pri.setVisible(true);
+
+        }else{
+            System.out.println("[Form] - The form exits");
+        }   
+    }//GEN-LAST:event_jMenu2MouseClicked
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenu Juego;
+    private javax.swing.JMenuItem JuegoI1;
     private javax.swing.JLabel imgInka;
     private javax.swing.JMenu itemCofreMagico;
     private javax.swing.JMenu itemMusic;
     private javax.swing.JMenu itemVideo1;
     private javax.swing.JMenu itemVideo2;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuBar menuBar;
     private javax.swing.JDesktopPane panelLienzo;
     private javax.swing.JMenu vAbout;
